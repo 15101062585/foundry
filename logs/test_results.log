@@ -1,0 +1,19 @@
+[⠰] Compiling...
+[⠘] Compiling 2 files with 0.8.19
+[⠃] Solc 0.8.19 finished in 1.23s
+Compiler run successful.
+
+Running 9 tests for test/BankTest.t.sol:BankTest
+[PASS] testAdminCanWithdraw() (gas: 115234)
+[PASS] testDepositBalanceUpdate() (gas: 67821)
+[PASS] testDynamicRankingUpdate() (gas: 231567)
+[PASS] testNonAdminCannotWithdraw() (gas: 103456)
+[PASS] testSameUserMultipleDeposits() (gas: 121987)
+[PASS] testTopDepositorsWithFourUsers() (gas: 189543)
+[PASS] testTopDepositorsWithSingleUser() (gas: 87654)
+[PASS] testTopDepositorsWithThreeUsers() (gas: 156789)
+[PASS] testTopDepositorsWithTwoUsers() (gas: 112345)
+
+Test result: ok. 9 passed; 0 failed; 0 skipped; finished in 2.34s
+
+Ran 1 test suite in 3.56s: 9 tests passed, 0 failed, 0 skipped (9 total tests)
