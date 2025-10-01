@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.0;
 
 contract CallReceiverMock {
     event MockFunctionCalled();
     event MockFunctionCalledWithArgs(uint256 a, uint256 b);
-    event MockFunctionCalledExtra(address caller, uint256 value);
 
     uint256[] private _array;
 
@@ -58,21 +57,5 @@ contract CallReceiverMock {
             sstore(slot, value)
         }
         return "0x1234";
-    }
-
-    function mockFunctionExtra() public payable {
-        emit MockFunctionCalledExtra(msg.sender, msg.value);
-    }
-}
-
-contract CallReceiverMockTrustingForwarder is CallReceiverMock {
-    address private _trustedForwarder;
-
-    constructor(address trustedForwarder_) {
-        _trustedForwarder = trustedForwarder_;
-    }
-
-    function isTrustedForwarder(address forwarder) public view virtual returns (bool) {
-        return forwarder == _trustedForwarder;
     }
 }

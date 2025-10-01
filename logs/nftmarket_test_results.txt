@@ -1,0 +1,59 @@
+No files changed, compilation skipped
+
+Ran 12 tests for test/NFTMarketTest.t.sol:NFTMarketTest
+[PASS] invariant_MarketHasNoTokenBalance() (runs: 256, calls: 128000, reverts: 101941)
+
+╭-------------+----------------------+-------+---------+----------╮
+| Contract    | Selector             | Calls | Reverts | Discards |
++=================================================================+
+| BaseERC20v2 | approve              | 8627  | 5       | 0        |
+|-------------+----------------------+-------+---------+----------|
+| BaseERC20v2 | transfer             | 8470  | 8357    | 0        |
+|-------------+----------------------+-------+---------+----------|
+| BaseERC20v2 | transferFrom         | 8501  | 8419    | 0        |
+|-------------+----------------------+-------+---------+----------|
+| BaseERC20v2 | transferWithCallback | 17012 | 16795   | 0        |
+|-------------+----------------------+-------+---------+----------|
+| MyNft       | approve              | 8624  | 8624    | 0        |
+|-------------+----------------------+-------+---------+----------|
+| MyNft       | mint                 | 8481  | 5       | 0        |
+|-------------+----------------------+-------+---------+----------|
+| MyNft       | safeTransferFrom     | 17095 | 17095   | 0        |
+|-------------+----------------------+-------+---------+----------|
+| MyNft       | setApprovalForAll    | 8551  | 2       | 0        |
+|-------------+----------------------+-------+---------+----------|
+| MyNft       | transferFrom         | 8536  | 8536    | 0        |
+|-------------+----------------------+-------+---------+----------|
+| NFTMarket   | buyNFT               | 8421  | 8421    | 0        |
+|-------------+----------------------+-------+---------+----------|
+| NFTMarket   | cancelListing        | 8535  | 8535    | 0        |
+|-------------+----------------------+-------+---------+----------|
+| NFTMarket   | list                 | 8532  | 8532    | 0        |
+|-------------+----------------------+-------+---------+----------|
+| NFTMarket   | tokensReceived       | 8615  | 8615    | 0        |
+╰-------------+----------------------+-------+---------+----------╯
+
+[FAIL: ERC20: transfer amount exceeds balance] testBuyNFT_Fail_AlreadySold() (gas: 193510)
+[FAIL: ERC20: transfer amount exceeds balance] testBuyNFT_Fail_BuyerIsSeller() (gas: 191532)
+[PASS] testBuyNFT_Fail_InsufficientAllowance() (gas: 166006)
+[PASS] testBuyNFT_Fail_NotListed() (gas: 15268)
+[FAIL: Error != expected error: ERC20: transfer amount exceeds balance != Price must be greater than 0] testBuyNFT_Fail_PriceZero() (gas: 194947)
+[FAIL: ERC20: transfer amount exceeds balance] testBuyNFT_Success() (gas: 197800)
+[FAIL: ERC20: transfer amount exceeds balance; counterexample: calldata=0x2190e61e00000000000000000000000000000000000000000000000000000000000012250000000000000000000000000000000000000000000000000000000000001a52 args=[4645, 0x0000000000000000000000000000000000001A52]] testFuzz_NFTMarket(uint256,address) (runs: 0, μ: 0, ~: 0)
+[PASS] testListNFT_Fail_AlreadyListed() (gas: 133021)
+[PASS] testListNFT_Fail_NotOwner() (gas: 20851)
+[PASS] testListNFT_Fail_PriceZero() (gas: 46044)
+[PASS] testListNFT_Success() (gas: 136062)
+Suite result: FAILED. 7 passed; 5 failed; 0 skipped; finished in 2.26s (2.26s CPU time)
+
+Ran 1 test suite in 2.27s (2.26s CPU time): 7 tests passed, 5 failed, 0 skipped (12 total tests)
+
+Failing tests:
+Encountered 5 failing tests in test/NFTMarketTest.t.sol:NFTMarketTest
+[FAIL: ERC20: transfer amount exceeds balance] testBuyNFT_Fail_AlreadySold() (gas: 193510)
+[FAIL: ERC20: transfer amount exceeds balance] testBuyNFT_Fail_BuyerIsSeller() (gas: 191532)
+[FAIL: Error != expected error: ERC20: transfer amount exceeds balance != Price must be greater than 0] testBuyNFT_Fail_PriceZero() (gas: 194947)
+[FAIL: ERC20: transfer amount exceeds balance] testBuyNFT_Success() (gas: 197800)
+[FAIL: ERC20: transfer amount exceeds balance; counterexample: calldata=0x2190e61e00000000000000000000000000000000000000000000000000000000000012250000000000000000000000000000000000000000000000000000000000001a52 args=[4645, 0x0000000000000000000000000000000000001A52]] testFuzz_NFTMarket(uint256,address) (runs: 0, μ: 0, ~: 0)
+
+Encountered a total of 5 failing tests, 7 tests succeeded
